@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -32,7 +33,6 @@ export default function Login() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
                 required
               />
             </div>
@@ -56,6 +56,7 @@ export default function Login() {
           Login
         </Button>
         <Button variant="outline" className="w-full">
+          <Image src="/google-logo.svg" alt="Google" width={20} height={20} />
           Login with Google
         </Button>
       </CardFooter>
