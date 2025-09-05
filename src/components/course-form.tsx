@@ -12,9 +12,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import TermSelector from "@/components/term-selector"
-import { CalendarArrowDown, Plus, Trash } from "lucide-react"
+import { CalendarArrowDown, Minus, Plus, Trash } from "lucide-react"
 
-import { useState} from 'react'
+import { useState } from 'react'
+// import { PromptInputBasic } from "./prompt-input"
 
 export default function courseForm() {
   const [crns, setCrns] = useState<string[]>([""])
@@ -33,6 +34,10 @@ export default function courseForm() {
         ? prev.filter((_, i) => i !== index) // remove the selected index
         : [""]                               // reset to a single empty input
     )
+  }
+
+  const removeAllCrns = () => {
+    setCrns([""])
   }
 
   return (
@@ -80,9 +85,13 @@ export default function courseForm() {
           </p>
         </div>
       </div>
+      {/* <PromptInputBasic />   */}
       <div className="flex w-full gap-2 pt-4">
-        <Button className="flex-1 text-black dark:text-white bg-white dark:bg-black border dark:border-[#27272A] hover:bg-[#E5E5E5] dark:hover:bg-[#232326]"><CalendarArrowDown />Export Calendar</Button>
+        <Button className="flex-1" onClick={removeAllCrns}><Minus />Remove Courses</Button>
         <Button className="flex-1" onClick={addCrn}><Plus />Add Course</Button>
+      </div>
+      <div className="pt-4">
+        <Button className="w-full text-black dark:text-white bg-white dark:bg-black border dark:border-[#27272A] hover:bg-[#E5E5E5] dark:hover:bg-[#232326]"><CalendarArrowDown />Export Calendar</Button>
       </div>
 
       </CardContent>

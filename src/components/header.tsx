@@ -17,7 +17,7 @@ export default function Header() {
               height={35}
               draggable={false}
               />
-            <span className="truncate text-lg">
+            <span className="text-lg hidden sm:inline">
               Course Planner AI
             </span>
           </div>
@@ -41,12 +41,12 @@ export default function Header() {
 
           <Link 
             href="https://github.com/maxxfuu/course-planner-ai" 
+            target="_blank"
             className={buttonVariants({ size: 'icon', variant: 'ghost' })}
           >
             <Github className="size-5" />
             <span className="sr-only">Activity Log</span>
           </Link>
-
           <ModeToggle />
         </nav>
       </div>
