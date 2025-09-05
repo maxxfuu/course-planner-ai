@@ -40,7 +40,7 @@ export default function Header() {
           </Link>
 
           <Link 
-            href="https://github.com/maxxfuu?tab=repositories" 
+            href="https://github.com/maxxfuu/course-planner-ai" 
             className={buttonVariants({ size: 'icon', variant: 'ghost' })}
           >
             <Github className="size-5" />
