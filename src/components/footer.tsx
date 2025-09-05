@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-2 mb-8">
+    <footer className="flex flex-col items-center gap-2 my-8">
       <p className="text-gray-400 text-sm flex items-center">
         &copy; {new Date().getFullYear()} Max Fu. All rights reserved.
       </p>

@@ -8,18 +8,20 @@ export default function Header() {
   return (
     <header className="sticky z-40 w-full border-b border-foreground/10 border-background/25">
       <div className="container flex items-center justify-between h-16">
-        <div className="min-w-0 flex flex-row items-center gap-4">
-          <Image
-            src= "/calendar.png"
-            alt="calendar"
-            width={35}
-            height={35}
-            draggable={false}
-          />
-          <span className="truncate text-lg">
-            Course Planner AI
-          </span>
-        </div>
+        <Link href="/">
+          <div className="min-w-0 flex flex-row items-center gap-4">
+            <Image
+              src= "/calendar.png"
+              alt="calendar"
+              width={35}
+              height={35}
+              draggable={false}
+              />
+            <span className="truncate text-lg">
+              Course Planner AI
+            </span>
+          </div>
+        </Link>
         <nav className="flex items-center gap-2">
           <Link 
             href="/login"  

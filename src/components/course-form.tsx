@@ -44,7 +44,7 @@ export default function courseForm() {
       <CardContent>
       <TermSelector />
 
-      <div className="grid grid-cols-2 space-y-2 py-2 gap-2">
+      <div className="grid grid-cols-2 py-2 gap-2">
         {crns.map((value, idx) => (
           <div key={idx} className={crns.length == 1 ? "col-span-2" : "col-span-1"}>
             <Label htmlFor={`crn-${idx}`}>CRN #{idx + 1}</Label>
