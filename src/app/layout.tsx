@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
+import { PropsWithChildren } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,13 +22,10 @@ export const metadata: Metadata = {
   }],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head />
       <body
         className={cn(
           'min-h-screen antialiased',

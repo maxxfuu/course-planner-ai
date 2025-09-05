@@ -1,5 +1,4 @@
 // Main functions for UC Merced Data Scraping
-
 import ky from "ky";
 import type {
   CodeDescriptionResponse,
@@ -7,12 +6,12 @@ import type {
 } from '@/types/ucmerced';
 
 const api = ky.create({
-  prefixUrl: "https://reg-prod.ec.ucmerced.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+  prefixUrl: "https://reg-prod.ec.ucmerced.edu/StudentRegistrationSsb/ssb",
   headers: { 'User-Agent': 'course-planner-ai' }
 });
 
 // Additional parameters when getting academic terms
-export function getAcademicTerms() {
+export async function getAcademicTerms() {
   const searchParams = new URLSearchParams();
   searchParams.set('searchTerm', '');
   searchParams.set('offset', '1');

@@ -7,17 +7,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { useState,
+  type ChangeEvent,
+  type FormEvent,
+  type PropsWithChildren,
+} from 'react'
 import { Switch } from "@/components/ui/switch"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import TermSelector from "@/components/term-selector"
+import { TermSelector } from "@/components/term-selector"
 import { CalendarArrowDown, Minus, Plus, Trash } from "lucide-react"
 
-import { useState } from 'react'
 // import { PromptInputBasic } from "./prompt-input"
 
-export default function courseForm() {
+export function CourseForm({ children }: PropsWithChildren) {
   const [crns, setCrns] = useState<string[]>([""])
 
   const addCrn = () => {
@@ -47,33 +51,31 @@ export default function courseForm() {
         <CardDescription>Enter your 5-digit course reference numbers (CRNs) below to generate an importable iCalendar file.</CardDescription>
       </CardHeader>
       <CardContent>
-      <TermSelector />
-
-      <div className="grid grid-cols-2 py-2 gap-2">
-        {crns.map((value, idx) => (
-          <div key={idx} className={crns.length == 1 ? "col-span-2" : "col-span-1"}>
-            <Label htmlFor={`crn-${idx}`}>CRN #{idx + 1}</Label>
-            <div className="mt-1 mb-1 flex items-center gap-2">
-              <Input
-                id={`crn-${idx}`}
-                type="number"
-                placeholder="00000"
-                value={value}
-                onChange={(e) => updateCrn(idx, e.target.value)}
-              />
-              <Button
-                type="button"
-                variant="ghost"
-                onClick={() => removeCrn(idx)}
-                aria-label={`Remove CRN ${idx + 1}`}
-              >
-                <Trash />
-              </Button>
+        {children}
+        <div className="grid grid-cols-2 py-2 gap-2">
+          {crns.map((value, idx) => (
+            <div key={idx} className={crns.length == 1 ? "col-span-2" : "col-span-1"}>
+              <Label htmlFor={`crn-${idx}`}>CRN #{idx + 1}</Label>
+              <div className="mt-1 mb-1 flex items-center gap-2">
+                <Input
+                  id={`crn-${idx}`}
+                  type="number"
+                  placeholder="00000"
+                  value={value}
+                  onChange={(e) => updateCrn(idx, e.target.value)}
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => removeCrn(idx)}
+                  aria-label={`Remove CRN ${idx + 1}`}
+                >
+                  <Trash />
+                </Button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-
+          ))}
+        </div>
       <div className="flex items-center space-x-2 pt-2">
         <Switch defaultChecked/>
         <div className="items-baseline space-x-2 sm:flex">
