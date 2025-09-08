@@ -23,7 +23,7 @@ export async function getAcademicTerms() {
 }
 
 // Additional parameters when getting instructor meeting times
-export function getInstructorMeetingTimes(term: string) {
+export function getInstructorMeetingTimes(term: string, crn: string) {
   const searchParams = new URLSearchParams();
   searchParams.set('term', term);
   
@@ -32,3 +32,21 @@ export function getInstructorMeetingTimes(term: string) {
     .json<InstructorMeetingTimesResponse>();
 }
 
+export async function getSubjects(term: string) {
+  const searchParams = new URLSearchParams();
+  searchParams.set('searchTerm', '');
+  searchParams.set('term', term);
+  searchParams.set('offset', '1');
+  searchParams.set('max', '999');
+  return api
+    .get('classSearch/get_subject', { searchParams })
+    .json<CodeDescriptionResponse>();
+}
+
+export async function getClassDetails(term: string, crn: string) {
+  const formData = new FormData();
+  formData.append('term', term);
+  formData.append('courseReferenceNumber', crn);
+  formData.append('first', 'first');
+  return api.post('searchResults/getClassDetails', { body: formData }).text();
+}
