@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 import { PropsWithChildren } from "react";
+import { Header } from "@/components/header";
+import { Sonner } from "@/components/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,16 +29,17 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <head />
       <body
         className={cn(
-          'min-h-screen antialiased',
+          'min-h-screen bg-background antialiased',
           geistSans.className
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className={`relative flex min-h-screen flex-col`}>
+        <div className="relative flex min-h-screen flex-col">
           <Header />
           <div className="flex flex-1">{children}</div>
           <Footer />
         </div>
+        <Sonner/>
         </ThemeProvider>
       </body>
     </html>

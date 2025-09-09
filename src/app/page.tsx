@@ -4,11 +4,11 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <main className="container flex max-w-2xl flex-col items-center justify-center gap-4">
+    <main className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-4">
       <h1 className="text-4xl pt-16 tracking-tight">Course Planner AI</h1>
       <CourseForm>
         <Suspense>
-          <TermSelector />
+          <TermSelector /> 
         </Suspense>
       </CourseForm>
     </main>

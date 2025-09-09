@@ -11,7 +11,7 @@ import { Label } from './ui/label';
 export async function TermSelector() {
   const terms = await getAcademicTerms();
   return (
-    <div className="grid w-full items-center gap-2">
+    <div className="grid w-full items-center gap-2 mb-2">
       <Label htmlFor="term">Academic term</Label>
       <Select name="term">
         <SelectTrigger>

@@ -4,7 +4,7 @@ import {User, Calendar, Github } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { ModeToggle } from "./theme-selector";
 
-export default function Header() {
+export function Header() {
   return (
     <header className="sticky z-40 w-full border-b border-foreground/10 border-background/25">
       <div className="container flex items-center justify-between h-16">
