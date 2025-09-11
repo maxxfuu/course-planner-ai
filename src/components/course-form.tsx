@@ -57,6 +57,7 @@ export function CourseForm({ children }: PropsWithChildren) {
     }) .then((response) => 
       response.json().then((result) => {
         if (result.error) {
+          setGenerating(false); 
           return toast.error(result.error);
         }
 
@@ -71,7 +72,10 @@ export function CourseForm({ children }: PropsWithChildren) {
 
         toast.success('Calender Generate!');
       })
-      .catch(() => toast.error('An unexpected error occurred!'))
+      .catch(() => {
+        setGenerating(false);
+        return toast.error('An unexpected error occurred!')
+      })
     )
   };
 

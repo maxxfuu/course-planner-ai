@@ -68,7 +68,7 @@ export async function POST(request: Request) {
     let classes;
     try {
       const response = await getInstructorMeetingTimes(term, crn);
-      classes = response.fmt;
+      classes = response;
     } catch {
       return NextResponse.json(
         {
@@ -196,7 +196,7 @@ export async function POST(request: Request) {
         calName: 'UC Merced',
         title: `${courseTitle} (${cls.meetingTime.meetingTypeDescription} - ${cls.meetingTime.courseReferenceNumber})`,
         recurrenceRule: `FREQ=WEEKLY;BYDAY=${recurrenceDays};UNTIL=${until}`,
-        productId: 'aelew/ucmerced-ical',
+        productId: 'maxxfuu/course-planner-ai',
         busyStatus: 'BUSY',
         location,
         organizer: cls.faculty.length
