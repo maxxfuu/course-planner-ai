@@ -17,8 +17,8 @@ export function Header() {
               height={35}
               draggable={false}
               />
-            <span className="text-lg hidden sm:inline">
-              Course Planner AI
+            <span className="flex flex-row items-center justify-center text-lg hidden sm:inline">
+              Course Planner AI <span className="text-sm text-muted-foreground ml-2">Beta</span>
             </span>
           </div>
         </Link>

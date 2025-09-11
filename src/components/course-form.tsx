@@ -70,6 +70,7 @@ export function CourseForm({ children }: PropsWithChildren) {
         document.body.appendChild(link);
         link.click();
 
+        setGenerating(false);
         toast.success('Calender Generate!');
       })
       .catch(() => {

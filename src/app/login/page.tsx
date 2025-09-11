@@ -1,9 +1,8 @@
 "use client"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -14,19 +13,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 
+
 export default function Login() {
   return (
     <Card className="mx-auto my-auto w-full max-w-sm h-full">
       <CardHeader>
         <CardTitle>Login to your account</CardTitle>
-        <CardDescription>
-          Enter your email below to login to your account
+        <CardDescription> Enter your email below to login to your account
         </CardDescription>
-        <CardAction>
-          <Link href="/signup">
-            <Button variant="link">Sign Up</Button>
-          </Link>
-        </CardAction>
       </CardHeader>
       <CardContent>
         <form>
@@ -63,6 +57,12 @@ export default function Login() {
           <Image src="/google-logo.svg" alt="Google" width={20} height={20} />
           Login with Google
         </Button>
+        <div className="text-sm font-small text-primary items-center justify-center">
+          <span className="flex flex-rowitems-center justify-center gap-2 pt-2">
+            Don&apos;t have an account? 
+            <Link href="/signup" className="underline-offset-4 hover:underline">Sign Up</Link>
+          </span>
+        </div>
       </CardFooter>
     </Card>
   )
